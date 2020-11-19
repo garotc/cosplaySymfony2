@@ -4,9 +4,11 @@ namespace App\Controller\Admin;
 
 use App\Entity\User;
 use App\Entity\Categorie;
+use App\Entity\InscriptionSolo;
 use App\Form\CategorieFormType;
 use App\Repository\UserRepository;
 use App\Form\EditAccountUserFormType;
+use App\Form\InscriptionSoloFormType;
 use App\Repository\CategorieRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\InscriptionSoloRepository;
@@ -105,6 +107,41 @@ class AdminController extends AbstractController
         $inscription = $this->getUser();
         $inscriptionsSolo = $repo->findAll();
         return $this->render('admin/inscriptionSolo.html.twig', compact('inscriptionsSolo','inscription'));
+    }
+
+
+    /**
+     * @Route("admin/inscription/solo/{id}/edit", name="admin_inscription_solo_edit", methods={"GET","POST"})
+     */
+    public function editInscriptionSolo(Request $request, InscriptionSolo $solo): Response
+    {
+        $form = $this->createForm(InscriptionSoloFormType::class, $solo);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('admin_aff_inscription_solo');
+        }
+
+        return $this->render('admin/editinscriptionSolo.html.twig', [
+            'solo' => $solo,
+            'editsoloform' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("admin/inscription/solo/{id}/delete", name="admin_inscription_solo_delete", methods="SUPSOLO")
+     */
+    public function deleteInscriptionSolo(Request $request, InscriptionSolo $solo): Response
+    {
+        if ($this->isCsrfTokenValid('SUPSOLO'.$solo->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($solo);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('admin_aff_inscription_solo');
     }
 
 }

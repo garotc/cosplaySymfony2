@@ -53,13 +53,17 @@ return [
                     .'|user/([^/]++)(?'
                         .'|(*:195)'
                     .')'
+                    .'|inscription/solo/([^/]++)/(?'
+                        .'|edit(*:237)'
+                        .'|delete(*:251)'
+                    .')'
                     .'|categorieadmin/categorie/([^/]++)(?'
-                        .'|(*:240)'
-                        .'|/edit(*:253)'
-                        .'|(*:261)'
+                        .'|(*:296)'
+                        .'|/edit(*:309)'
+                        .'|(*:317)'
                     .')'
                 .')'
-                .'|/reset\\-password/reset(?:/([^/]++))?(*:307)'
+                .'|/reset\\-password/reset(?:/([^/]++))?(*:363)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -74,10 +78,12 @@ return [
             [['_route' => 'admin_user_edit', '_controller' => 'App\\Controller\\Admin\\AdminController::editUser'], ['id'], null, null, false, true, null],
             [['_route' => 'admin_user_delete', '_controller' => 'App\\Controller\\Admin\\AdminController::deleteUser'], ['id'], ['SUP' => 0], null, false, true, null],
         ],
-        240 => [[['_route' => 'categorie_show', '_controller' => 'App\\Controller\\CategorieController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        253 => [[['_route' => 'categorie_edit', '_controller' => 'App\\Controller\\CategorieController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        261 => [[['_route' => 'categorie_delete', '_controller' => 'App\\Controller\\CategorieController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
-        307 => [
+        237 => [[['_route' => 'admin_inscription_solo_edit', '_controller' => 'App\\Controller\\Admin\\AdminController::editInscriptionSolo'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        251 => [[['_route' => 'admin_inscription_solo_delete', '_controller' => 'App\\Controller\\Admin\\AdminController::deleteInscriptionSolo'], ['id'], ['SUPSOLO' => 0], null, false, false, null]],
+        296 => [[['_route' => 'categorie_show', '_controller' => 'App\\Controller\\CategorieController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        309 => [[['_route' => 'categorie_edit', '_controller' => 'App\\Controller\\CategorieController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        317 => [[['_route' => 'categorie_delete', '_controller' => 'App\\Controller\\CategorieController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
+        363 => [
             [['_route' => 'app_reset_password', 'token' => null, '_controller' => 'App\\Controller\\ResetPasswordController::reset'], ['token'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

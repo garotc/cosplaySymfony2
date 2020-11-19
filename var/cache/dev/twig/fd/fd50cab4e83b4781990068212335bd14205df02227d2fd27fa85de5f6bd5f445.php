@@ -215,6 +215,24 @@ class __TwigTemplate_22610257ff63a06e372896118796f94708aed9e97e7bee24b22d2a18073
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["inscription"], "InfosSolo", [], "any", false, false, false, 71), "html", null, true);
             echo "</div>
         </div>
+        <div class=\"row mb-3\">
+                       <a href=\"";
+            // line 74
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_inscription_solo_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["inscription"], "id", [], "any", false, false, false, 74)]), "html", null, true);
+            echo "\" class=\"btn btn-warning col-4 m-auto\">Editer</a>
+            <form method=\"POST\" class='col-4 m-auto btn' action=\"";
+            // line 75
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_inscription_solo_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["inscription"], "id", [], "any", false, false, false, 75)]), "html", null, true);
+            echo "\"
+                                                onSubmit =\"return confirm('Confirmer la suppression ?')\" style=\"display:inline-block\" >
+                                                <input type=\"hidden\" name=\"_method\" value=\"SUPSOLO\">
+                                                <input type=\"hidden\" name=\"_token\" value=\"";
+            // line 78
+            echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("SUPSOLO" . twig_get_attribute($this->env, $this->source, $context["inscription"], "id", [], "any", false, false, false, 78))), "html", null, true);
+            echo "\">
+                                                <input type=\"submit\" class=\"btn btn-danger\" value=\"Supprimer\">
+            </form>
+        </div>
     </div>
 
 ";
@@ -222,7 +240,7 @@ class __TwigTemplate_22610257ff63a06e372896118796f94708aed9e97e7bee24b22d2a18073
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['inscription'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 76
+        // line 85
         echo "</section>
 
 ";
@@ -246,7 +264,7 @@ class __TwigTemplate_22610257ff63a06e372896118796f94708aed9e97e7bee24b22d2a18073
 
     public function getDebugInfo()
     {
-        return array (  226 => 76,  215 => 71,  209 => 68,  204 => 65,  200 => 63,  196 => 61,  194 => 60,  189 => 57,  185 => 55,  181 => 53,  179 => 52,  174 => 49,  170 => 47,  166 => 45,  164 => 44,  159 => 41,  155 => 39,  151 => 37,  149 => 36,  143 => 33,  137 => 30,  130 => 26,  124 => 23,  118 => 20,  114 => 19,  108 => 16,  102 => 13,  97 => 10,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  244 => 85,  231 => 78,  225 => 75,  221 => 74,  215 => 71,  209 => 68,  204 => 65,  200 => 63,  196 => 61,  194 => 60,  189 => 57,  185 => 55,  181 => 53,  179 => 52,  174 => 49,  170 => 47,  166 => 45,  164 => 44,  159 => 41,  155 => 39,  151 => 37,  149 => 36,  143 => 33,  137 => 30,  130 => 26,  124 => 23,  118 => 20,  114 => 19,  108 => 16,  102 => 13,  97 => 10,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -322,6 +340,15 @@ class __TwigTemplate_22610257ff63a06e372896118796f94708aed9e97e7bee24b22d2a18073
         </div>
         <div class=\"row py-1\">
             <div class=\"col-sm-12 col-md-12\">Autres informations : {{ inscription.InfosSolo }}</div>
+        </div>
+        <div class=\"row mb-3\">
+                       <a href=\"{{path('admin_inscription_solo_edit',{'id':inscription.id})}}\" class=\"btn btn-warning col-4 m-auto\">Editer</a>
+            <form method=\"POST\" class='col-4 m-auto btn' action=\"{{path('admin_inscription_solo_delete',{'id':inscription.id})}}\"
+                                                onSubmit =\"return confirm('Confirmer la suppression ?')\" style=\"display:inline-block\" >
+                                                <input type=\"hidden\" name=\"_method\" value=\"SUPSOLO\">
+                                                <input type=\"hidden\" name=\"_token\" value=\"{{csrf_token('SUPSOLO' ~ inscription.id)}}\">
+                                                <input type=\"submit\" class=\"btn btn-danger\" value=\"Supprimer\">
+            </form>
         </div>
     </div>
 
