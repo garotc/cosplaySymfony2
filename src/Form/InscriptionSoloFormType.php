@@ -19,34 +19,38 @@ class InscriptionSoloFormType extends AbstractType
     {
         $builder
             //->add('createdAt')
-            ->add('nomPersoSolo', TextType::class)
-            ->add('univerSolo', TextType::class)
+            ->add('nomPersoSolo', TextType::class, ['label'=>'Nom de mon personnage'])
+            ->add('univerSolo', TextType::class, ['label'=>'Univers'])
             ->add('mediaSolo', ChoiceType::class, [
                 'choices'  => [
                     'Musique' => true,
                     'Video' => false,
                 ],
+                'label'=>'Mon type de média'
             ])
             ->add('envoiMediaSolo', ChoiceType::class,[
                 'choices'=>[
                     'Avant mon entrée'=> true,
                     'Après mon entrée'=>false
-                ]
+                ],
+                'label'=>'Il faut envoyer mon média'
             ])
             ->add('aideSolo', ChoiceType::class,[
                 'choices'=>[
-                    'Besoin d\'aide pour monter'=> true,
-                    'Pas besoin d\'aide pour monter'=>false
-                ]
+                    'Oui'=> true,
+                    'Non'=>false
+                ],
+                'label'=>'J\'ai besoin d\'aide pour monter sur scène'
             ])
             ->add('accessoireSolo', ChoiceType::class,[
                 'choices'=>[
-                    'J\ai des accessoires à déposer'=> true,
-                    'Je n\'ai pas d\'accessoires à déposer'=>false
-                ]
+                    'Oui'=> true,
+                    'Non'=>false
+                ],
+                'label'=>'J\'ai des accessoire à déposer sur scène avant mon entrée'
             ])
-            ->add('descriptionAccessoireSolo', TextareaType::class)
-            ->add('infosSolo', TextareaType::class)
+            ->add('descriptionAccessoireSolo', TextareaType::class,['label'=>'Description de mes accessoires à déposer'])
+            ->add('infosSolo', TextareaType::class, ['label'=>'Informations complémentaires'])
             //->add('user')
             ->add('categorie',EntityType::class,[
                 'class'=>Categorie::class,
