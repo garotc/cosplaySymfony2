@@ -19,7 +19,7 @@ class InscriptionSolo
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity=user::class, cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=user::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;

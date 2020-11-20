@@ -5465,6 +5465,12 @@
         <argument key="repo" type="service" id="App\Repository\InscriptionSoloRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.4MW7.KG" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="solo" type="service" id=".errored..service_locator.4MW7.KG.App\Entity\InscriptionSolo"/>
+      </argument>
+    </service>
     <service id=".service_locator.9aMSQQN" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5516,13 +5522,15 @@
         <argument key="em" type="service" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
-    <service id=".service_locator.GUUx3BN" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.St1_LoH" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\Admin\AdminController::affInscriptionSolo" type="service" id=".service_locator.4oNQG9h"/>
         <argument key="App\Controller\Admin\AdminController::affUser" type="service" id=".service_locator.RTUGCCW"/>
         <argument key="App\Controller\Admin\AdminController::ajouterCategorie" type="service" id=".service_locator.O30o4K4"/>
+        <argument key="App\Controller\Admin\AdminController::deleteInscriptionSolo" type="service" id=".service_locator.4MW7.KG"/>
         <argument key="App\Controller\Admin\AdminController::deleteUser" type="service" id=".service_locator.dNCO0Nf"/>
+        <argument key="App\Controller\Admin\AdminController::editInscriptionSolo" type="service" id=".service_locator.4MW7.KG"/>
         <argument key="App\Controller\Admin\AdminController::editUser" type="service" id=".service_locator.dNCO0Nf"/>
         <argument key="App\Controller\CategorieController::delete" type="service" id=".service_locator.57pSehj"/>
         <argument key="App\Controller\CategorieController::edit" type="service" id=".service_locator.57pSehj"/>
@@ -5545,7 +5553,9 @@
         <argument key="App\Controller\Admin\AdminController:affInscriptionSolo" type="service" id=".service_locator.4oNQG9h"/>
         <argument key="App\Controller\Admin\AdminController:affUser" type="service" id=".service_locator.RTUGCCW"/>
         <argument key="App\Controller\Admin\AdminController:ajouterCategorie" type="service" id=".service_locator.O30o4K4"/>
+        <argument key="App\Controller\Admin\AdminController:deleteInscriptionSolo" type="service" id=".service_locator.4MW7.KG"/>
         <argument key="App\Controller\Admin\AdminController:deleteUser" type="service" id=".service_locator.dNCO0Nf"/>
+        <argument key="App\Controller\Admin\AdminController:editInscriptionSolo" type="service" id=".service_locator.4MW7.KG"/>
         <argument key="App\Controller\Admin\AdminController:editUser" type="service" id=".service_locator.dNCO0Nf"/>
         <argument key="App\Controller\CategorieController:delete" type="service" id=".service_locator.57pSehj"/>
         <argument key="App\Controller\CategorieController:edit" type="service" id=".service_locator.57pSehj"/>
@@ -6061,12 +6071,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.GUUx3BN"/>
+      <argument type="service" id=".service_locator.St1_LoH"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.GUUx3BN"/>
+      <argument type="service" id=".service_locator.St1_LoH"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -6078,6 +6088,7 @@
     </service>
     <service id=".errored..service_locator.beq5mCo.Symfony\Component\HttpFoundation\Response" class="Symfony\Component\HttpFoundation\Response"/>
     <service id=".errored..service_locator.C9JCBPC.Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface"/>
+    <service id=".errored..service_locator.4MW7.KG.App\Entity\InscriptionSolo" class="App\Entity\InscriptionSolo"/>
     <service id=".errored..service_locator.57pSehj.App\Entity\Categorie" class="App\Entity\Categorie"/>
     <service id=".errored..service_locator.0l1nthY.App\Entity\User" class="App\Entity\User"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
@@ -6471,7 +6482,7 @@
     <service id="SymfonyCasts\Bundle\ResetPassword\ResetPasswordHelperInterface" alias="symfonycasts.reset_password.helper"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.WaGDpDt" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.GUUx3BN"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.St1_LoH"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>
