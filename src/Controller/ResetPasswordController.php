@@ -122,7 +122,7 @@ class ResetPasswordController extends AbstractController
             // The session is cleaned up after the password has been changed.
             $this->cleanSessionAfterReset();
 
-            return $this->redirectToRoute('app_accueil');
+            return $this->redirectToRoute('app_login');
         }
 
         return $this->render('reset_password/reset.html.twig', [
@@ -141,7 +141,8 @@ class ResetPasswordController extends AbstractController
 
         // Do not reveal whether a user account was found or not.
         if (!$user) {
-            return $this->redirectToRoute('app_check_email');
+            $this->addFlash('reset_password_error', 'Cet Email n\'existe pas');
+            return $this->redirectToRoute('app_forgot_password_request');
         }
 
         try {
@@ -160,7 +161,7 @@ class ResetPasswordController extends AbstractController
         }
 
         $email = (new TemplatedEmail())
-            ->from(new Address('ec785a13d9195f@smtp.mailtrap.io', 'pole cosplay'))
+            ->from(new Address('71fd746dd3-0beb81@inbox.mailtrap.io', 'Pole Cosplay'))
             ->to($user->getEmail())
             ->subject('Your password reset request')
             ->htmlTemplate('reset_password/email.html.twig')
