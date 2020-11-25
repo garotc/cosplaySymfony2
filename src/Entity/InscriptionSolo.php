@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\InscriptionSoloRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=InscriptionSoloRepository::class)
@@ -19,7 +20,7 @@ class InscriptionSolo
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity=user::class, cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=user::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
@@ -31,6 +32,7 @@ class InscriptionSolo
     private $createdAt;
 
     /**
+    * @assert\Length(min=1,minMessage="Le nom doit faire plus d'un caractère")
      * @ORM\Column(type="string", length=255)
      */
     private $nomPersoSolo;

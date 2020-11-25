@@ -70,6 +70,15 @@
         <div class="row py-1">
             <div class="col-sm-12 col-md-12">Autres informations : {{ inscription.InfosSolo }}</div>
         </div>
+        <div class="row mb-3">
+                       <a href="{{path('admin_inscription_solo_edit',{'id':inscription.id})}}" class="btn btn-warning col-4 m-auto">Editer</a>
+            <form method="POST" class='col-4 m-auto btn' action="{{path('admin_inscription_solo_delete',{'id':inscription.id})}}"
+                                                onSubmit ="return confirm('Confirmer la suppression ?')" style="display:inline-block" >
+                                                <input type="hidden" name="_method" value="SUPSOLO">
+                                                <input type="hidden" name="_token" value="{{csrf_token('SUPSOLO' ~ inscription.id)}}">
+                                                <input type="submit" class="btn btn-danger" value="Supprimer">
+            </form>
+        </div>
     </div>
 
 {% endfor %}

@@ -43,6 +43,15 @@ header
     z-index: 99;
 }
 
+h1
+{
+    margin-right : auto!important;
+    margin-left: auto!important;
+    margin-bottom: 2vh;
+    text-align: center;
+    top: 12vh;
+}
+
 .menu
 {
     background-color: #111111;
@@ -97,6 +106,26 @@ a:hover
     text-decoration: none;
 }
 
+.paralax
+{
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-image: url(../img/paralax.jpg);
+    color: white;
+    height: 100vh;
+    width: 100vw;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.accueil-title
+{
+    text-align: center;
+}
 
 @media screen and (min-width: 769px) {
 
@@ -113,36 +142,29 @@ a:hover
         width: 50vw;
         padding-top: 10vh ;
         padding-bottom: 10vh;
-        background-color: #313131;
+        background-color: #FFA514;
     }
 
     body
     {
-        background-image: url(../img/paralax.jpg);
+        /* background-image: url(../img/paralax.jpg); */
         background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
     }
 
-    .paralax h1
-    {
-        position: relative;
-        font-size: 15vh;
-        text-shadow: 2px 2px 5px #111111;
-        vertical-align: center;
-    }
-
-    h1
-    {
-        top: 20vh;
-    }
 }
 
 
 /*petits appareil*/
 @media screen and (min-width: 0px) and (max-width: 768px) {
 
+    body
+    {
+        background-color: #fff!important;
+    }
+    
     section
     {
         margin-top : 5vh;
@@ -156,20 +178,7 @@ a:hover
         width: 100%;
         padding-top: 10vh ;
         padding-bottom: 10vh;
-        background-color: #313131;
-    }
-
-    .paralax
-    {
-        background-image: url(../images/cgs.jpg);
-        margin-top: 10vh;
-        color: white;
-        text-align: center;
-        height: 30vh;
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+        background-color: #FFA514;
     }
 
     header
@@ -183,10 +192,7 @@ a:hover
         z-index: 99;
     }
 
-    h1
-    {
-        top: 12vh;
-    }
+
 }
 
 
@@ -245,7 +251,7 @@ label
 
 .container
 {
-    margin :0;
+    margin :0!important;
     width: 100vw;
 }
 

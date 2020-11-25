@@ -19,9 +19,9 @@ class InscriptionSoloRepository extends ServiceEntityRepository
         parent::__construct($registry, InscriptionSolo::class);
     }
 
-    // /**
-    //  * @return InscriptionSolo[] Returns an array of InscriptionSolo objects
-    //  */
+    /**
+     * @return InscriptionSolo[] Returns an array of InscriptionSolo objects
+     */
     /*
     public function findByExampleField($value)
     {
@@ -36,15 +36,17 @@ class InscriptionSoloRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?InscriptionSolo
+    
+    public function findOneByUserId($value)
     {
-        return $this->createQueryBuilder('i')
-            ->andWhere('i.exampleField = :val')
+        return $this->createQueryBuilder('inscriptionSolo')
+            ->andWhere('inscriptionSolo.user = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()
         ;
     }
-    */
+
+
+    
 }

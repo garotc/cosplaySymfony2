@@ -19,7 +19,8 @@ class InscriptionSoloFormType extends AbstractType
     {
         $builder
             //->add('createdAt')
-            ->add('nomPersoSolo', TextType::class, ['label'=>'Nom de mon personnage'])
+            ->add('nomPersoSolo', TextType::class, [
+                'label'=>'Nom de mon personnage'])
             ->add('univerSolo', TextType::class, ['label'=>'Univers'])
             ->add('mediaSolo', ChoiceType::class, [
                 'choices'  => [
@@ -66,6 +67,8 @@ class InscriptionSoloFormType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => InscriptionSolo::class,
+            'attr'=>
+                ['novalidate'=>'novalidate']
         ]);
     }
 }
