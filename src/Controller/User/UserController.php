@@ -22,7 +22,7 @@ class UserController extends AbstractController
     public function getInfosUser(UserRepository $repo, EntityManagerInterface $em): Response
     {
         $user = $this->getUser();
-        $infos = $repo->findOneBy(['id'=>$user]);
+        $infos = $repo->findOneByUserId($user);
         //dd($infos);
         return $this->render('home/user/compte.html.twig', compact('user', 'infos'));
     }
@@ -31,21 +31,21 @@ class UserController extends AbstractController
      * @Route("/profile/modifier-compte", name="user_edit", methods={"GET","POST"})
     */
 
-    public function editUser(User $user=null, Request $request, EntityManagerInterface $em) : Response
+    public function editUser(User $user=null, Request $request, EntityManagerInterface $em, UserRepository $repo) : Response
     {
-        $modif = $this->getUser('id');
-        //dd($modif);
 
+        $user = $this->getUser('id');
+        
         $form = $this->createForm(EditAccountUserFormType::class, $user);
+        
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
-            $this->getDoctrine()->getManager()->flush();
             
-           // $em->persist($user);
-            //$em->flush();
+            $em->persist($user);
+            $em->flush();
 
-            $this->addFlash ('success', $modif? 'modification effectuées' : 'user ajouté');
+            $this->addFlash ('success', 'modification effectuées');
             return $this->redirectToRoute('_app_user_account');
            
         }
@@ -53,11 +53,12 @@ class UserController extends AbstractController
         return $this->render('home/user/editCompte.html.twig', ['userForm'=> $form->createView()]);
     }
 
+    
     /**
      * @Route("/profile/inscription/solo/edit", name="inscription_solo_edit", methods="GET|POST")
      * @Route("/profile/inscription/solo", name="inscription_solo")
      */
-    public function inscriptionSolo(InscriptionSolo $inscription=null, Request $request, EntityManagerInterface $em, InscriptionSoloRepository $repo): Response
+    public function inscriptionSolo(Request $request, EntityManagerInterface $em, InscriptionSoloRepository $repo): Response
     {
         $user = $this->getUser();
         $userId = $user->getId();
@@ -67,8 +68,6 @@ class UserController extends AbstractController
             $inscriptionSolo = new inscriptionSolo();
             $inscriptionSolo->setUser($user);
         }
- 
-        //variable pour savoir si on est en création ou modification
 
        $modif = $inscriptionSolo->getUser() !== $user;
 

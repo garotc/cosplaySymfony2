@@ -1,10 +1,12 @@
 <h1>Bonjour!</h1>
 
 <p>Tu as oublié ton mot de passe ?<br>
-Pour changer votre mot de plasse, veuillez cliquer sur ce lien !</p>
+Pour le changer, clique sur le lien ci-dessous, il t'emmènera sur la page pour en créer un nouveau.</p>
 
-<a href="{{ url('app_reset_password', {token: resetToken.token}) }}">{{ url('app_reset_password', {token: resetToken.token}) }}</a>
+<a href="{{ url('app_reset_password', {token: resetToken.token}) }}" class='btn btn-dark'>Créer un nouveau mot de passe</a>
 
-<p>Ce lien va expirer dans {{ tokenLifetime|date('g') }} heure(s).</p>
+<p>Attention, ce lien va expirer dans {{ tokenLifetime|date('g') }} heure.</p>
 
-<p>Bonne journée!</p>
+<p>Si tu rencontres un problème, n'hésites pas à nous contacter.</p>
+
+<p>Bonne journée !</p>
