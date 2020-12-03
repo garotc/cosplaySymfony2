@@ -29,8 +29,8 @@ return [
         '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
         '/profile/mon-compte' => [[['_route' => '_app_user_account', '_controller' => 'App\\Controller\\User\\UserController::getInfosUser'], null, null, null, false, false, null]],
         '/profile/modifier-compte' => [[['_route' => 'user_edit', '_controller' => 'App\\Controller\\User\\UserController::editUser'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        '/profile/inscription/solo/edit' => [[['_route' => 'inscription_solo_edit', '_controller' => 'App\\Controller\\User\\UserController::inscriptionSolo'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        '/profile/inscription/solo' => [[['_route' => 'inscription_solo', '_controller' => 'App\\Controller\\User\\UserController::inscriptionSolo'], null, null, null, false, false, null]],
+        '/profile/inscription/solo' => [[['_route' => 'inscription_solo', '_controller' => 'App\\Controller\\User\\UserController::infosInscriptionSolo'], null, null, null, false, false, null]],
+        '/profile/inscription/solo/modifier' => [[['_route' => 'inscription_solo_edit', '_controller' => 'App\\Controller\\User\\UserController::inscriptionSolo'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -64,6 +64,7 @@ return [
                     .')'
                 .')'
                 .'|/reset\\-password/reset(?:/([^/]++))?(*:363)'
+                .'|/profile/inscription/solo/([^/]++)/delete(*:412)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -83,8 +84,9 @@ return [
         296 => [[['_route' => 'categorie_show', '_controller' => 'App\\Controller\\CategorieController::show'], ['id'], ['GET' => 0], null, false, true, null]],
         309 => [[['_route' => 'categorie_edit', '_controller' => 'App\\Controller\\CategorieController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
         317 => [[['_route' => 'categorie_delete', '_controller' => 'App\\Controller\\CategorieController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
-        363 => [
-            [['_route' => 'app_reset_password', 'token' => null, '_controller' => 'App\\Controller\\ResetPasswordController::reset'], ['token'], null, null, false, true, null],
+        363 => [[['_route' => 'app_reset_password', 'token' => null, '_controller' => 'App\\Controller\\ResetPasswordController::reset'], ['token'], null, null, false, true, null]],
+        412 => [
+            [['_route' => 'inscription_solo_delete', '_controller' => 'App\\Controller\\User\\UserController::deleteInscriptionSolo'], ['id'], ['SUPUSERSOLO' => 0], null, false, false, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

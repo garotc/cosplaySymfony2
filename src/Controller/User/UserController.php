@@ -31,7 +31,7 @@ class UserController extends AbstractController
      * @Route("/profile/modifier-compte", name="user_edit", methods={"GET","POST"})
     */
 
-    public function editUser(User $user=null, Request $request, EntityManagerInterface $em, UserRepository $repo) : Response
+    public function editUser(User $user=null, Request $request, EntityManagerInterface $em) : Response
     {
 
         $user = $this->getUser('id');
@@ -53,17 +53,29 @@ class UserController extends AbstractController
         return $this->render('home/user/editCompte.html.twig', ['userForm'=> $form->createView()]);
     }
 
+    /**
+     * @Route("profile/inscription/solo", name="inscription_solo"))
+     * 
+     */
+    public function infosInscriptionSolo(InscriptionSoloRepository $repo, EntityManagerInterface $em): Response
+    {
+        $user = $this->getUser();
+        $userId = $user->getId();
+        $infos= $repo->findOneByUserId($userId);
+        //dd($infos);
+        return $this->render('home/user/inscriptionsolo.html.twig', compact('user', 'infos'));
+    }
     
     /**
      * @Route("/profile/inscription/solo/edit", name="inscription_solo_edit", methods="GET|POST")
-     * @Route("/profile/inscription/solo", name="inscription_solo")
+     * @Route("/profile/inscription/solo/modifier", name="inscription_solo_edit")
      */
     public function inscriptionSolo(Request $request, EntityManagerInterface $em, InscriptionSoloRepository $repo): Response
     {
         $user = $this->getUser();
         $userId = $user->getId();
         $inscriptionSolo= $repo->findOneByUserId($userId);
-       // dd($inscriptionSolo);
+
         if(!$inscriptionSolo){
             $inscriptionSolo = new inscriptionSolo();
             $inscriptionSolo->setUser($user);
@@ -85,6 +97,21 @@ class UserController extends AbstractController
 
        return $this->render('user/inscriptionsolo.html.twig',['formulaireSolo'=>$form->createView()]);
 
+    }
+
+    /**
+     * @Route("profile/inscription/solo/{id}/delete", name="inscription_solo_delete", methods="SUPUSERSOLO")
+     */
+    public function deleteInscriptionSolo(Request $request,InscriptionSoloRepository $repo, InscriptionSolo $inscriptionSolo): Response
+    {
+
+        if ($this->isCsrfTokenValid('SUPUSERSOLO'.$inscriptionSolo->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($inscriptionSolo);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('inscription_solo');
     }
     
 }

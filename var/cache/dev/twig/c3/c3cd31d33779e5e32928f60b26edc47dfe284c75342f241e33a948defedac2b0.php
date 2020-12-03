@@ -95,7 +95,7 @@ class __TwigTemplate_7fefbe2966fc8a3eb83e9af671036f619adf14dcce3937640610d5a3ded
     ";
         // line 13
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formulaireSolo"]) || array_key_exists("formulaireSolo", $context) ? $context["formulaireSolo"] : (function () { throw new RuntimeError('Variable "formulaireSolo" does not exist.', 13, $this->source); })()), 'form_start');
-        echo "  
+        echo "
     <h2 class=\"col-6 m-auto\">Formulaire d'inscription au concours solo</h2>
         <div class=\"form-group col-6 mx-auto\">
             ";
@@ -152,16 +152,19 @@ class __TwigTemplate_7fefbe2966fc8a3eb83e9af671036f619adf14dcce3937640610d5a3ded
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formulaireSolo"]) || array_key_exists("formulaireSolo", $context) ? $context["formulaireSolo"] : (function () { throw new RuntimeError('Variable "formulaireSolo" does not exist.', 41, $this->source); })()), "infosSolo", [], "any", false, false, false, 41), 'row', ["attr" => ["placeholder" => "Informations supplémentaires...", "class" => "form-control"]]);
         echo "
         </div>
-        <div class=\"form-group col-6 mx-auto\"> ";
-        // line 43
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formulaireSolo"]) || array_key_exists("formulaireSolo", $context) ? $context["formulaireSolo"] : (function () { throw new RuntimeError('Variable "formulaireSolo" does not exist.', 43, $this->source); })()), "Enregistrer", [], "any", false, false, false, 43), 'row', ["attr" => ["label" => "Enregistrer", "class" => "btn btn-warning m-auto"]]);
+
+        ";
+        // line 45
+        echo "        <div class=\"form-group col-6 mx-auto\"> ";
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formulaireSolo"]) || array_key_exists("formulaireSolo", $context) ? $context["formulaireSolo"] : (function () { throw new RuntimeError('Variable "formulaireSolo" does not exist.', 45, $this->source); })()), "Enregistrer", [], "any", false, false, false, 45), 'row', ["attr" => ["label" => "Enregistrer", "class" => "btn btn-warning m-auto"]]);
         echo "</div>
+
+
     ";
-        // line 44
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formulaireSolo"]) || array_key_exists("formulaireSolo", $context) ? $context["formulaireSolo"] : (function () { throw new RuntimeError('Variable "formulaireSolo" does not exist.', 44, $this->source); })()), 'form_end');
+        // line 48
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formulaireSolo"]) || array_key_exists("formulaireSolo", $context) ? $context["formulaireSolo"] : (function () { throw new RuntimeError('Variable "formulaireSolo" does not exist.', 48, $this->source); })()), 'form_end');
         echo "
     </div>
-    
 
     </div>
 </div>
@@ -187,7 +190,7 @@ class __TwigTemplate_7fefbe2966fc8a3eb83e9af671036f619adf14dcce3937640610d5a3ded
 
     public function getDebugInfo()
     {
-        return array (  161 => 44,  157 => 43,  152 => 41,  146 => 38,  140 => 35,  134 => 32,  128 => 29,  122 => 26,  116 => 23,  109 => 19,  103 => 16,  97 => 13,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  165 => 48,  158 => 45,  152 => 41,  146 => 38,  140 => 35,  134 => 32,  128 => 29,  122 => 26,  116 => 23,  109 => 19,  103 => 16,  97 => 13,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -204,7 +207,7 @@ class __TwigTemplate_7fefbe2966fc8a3eb83e9af671036f619adf14dcce3937640610d5a3ded
 
 
     <div class=\"form\"> 
-    {{ form_start(formulaireSolo) }}  
+    {{ form_start(formulaireSolo) }}
     <h2 class=\"col-6 m-auto\">Formulaire d'inscription au concours solo</h2>
         <div class=\"form-group col-6 mx-auto\">
             {{ form_row(formulaireSolo.univerSolo,{\"attr\":{ placeholder:'DBZ, One Piece, ...', class:'form-control'}}) }}
@@ -234,10 +237,13 @@ class __TwigTemplate_7fefbe2966fc8a3eb83e9af671036f619adf14dcce3937640610d5a3ded
         <div class=\"form-group col-6 mx-auto\">
             {{ form_row(formulaireSolo.infosSolo,{\"attr\":{ placeholder:'Informations supplémentaires...', class:'form-control'}}) }}
         </div>
+
+        {# bouton enregistrer #}
         <div class=\"form-group col-6 mx-auto\"> {{ form_row(formulaireSolo.Enregistrer,{\"attr\":{ label:'Enregistrer', class:'btn btn-warning m-auto'}}) }}</div>
+
+
     {{ form_end(formulaireSolo) }}
     </div>
-    
 
     </div>
 </div>
