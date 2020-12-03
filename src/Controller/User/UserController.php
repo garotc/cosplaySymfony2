@@ -68,7 +68,7 @@ class UserController extends AbstractController
     
     /**
      * @Route("/profile/inscription/solo/edit", name="inscription_solo_edit", methods="GET|POST")
-     * @Route("/profile/inscription/solo/modifier", name="inscription_solo_edit")
+     * @Route("/profile/inscription/solo/minscrire", name="inscription_solo_ajout")
      */
     public function inscriptionSolo(Request $request, EntityManagerInterface $em, InscriptionSoloRepository $repo): Response
     {
@@ -95,7 +95,7 @@ class UserController extends AbstractController
            return $this->redirectToRoute('inscription_solo');
        }
 
-       return $this->render('user/inscriptionsolo.html.twig',['formulaireSolo'=>$form->createView()]);
+       return $this->render('home/user/editInscriptionSolo.html.twig',['formulaireSolo'=>$form->createView()]);
 
     }
 

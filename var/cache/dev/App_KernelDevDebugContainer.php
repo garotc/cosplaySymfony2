@@ -16,6 +16,6 @@ if (!\class_exists(App_KernelDevDebugContainer::class, false)) {
 
 return new \ContainerALTzUsk\App_KernelDevDebugContainer([
     'container.build_hash' => 'ALTzUsk',
-    'container.build_id' => 'd2e797a1',
-    'container.build_time' => 1606991904,
+    'container.build_id' => 'a80463b9',
+    'container.build_time' => 1606998408,
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerALTzUsk');

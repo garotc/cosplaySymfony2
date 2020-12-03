@@ -40,6 +40,7 @@ return [
     '_app_user_account' => [[], ['_controller' => 'App\\Controller\\User\\UserController::getInfosUser'], [], [['text', '/profile/mon-compte']], [], []],
     'user_edit' => [[], ['_controller' => 'App\\Controller\\User\\UserController::editUser'], [], [['text', '/profile/modifier-compte']], [], []],
     'inscription_solo' => [[], ['_controller' => 'App\\Controller\\User\\UserController::infosInscriptionSolo'], [], [['text', '/profile/inscription/solo']], [], []],
-    'inscription_solo_edit' => [[], ['_controller' => 'App\\Controller\\User\\UserController::inscriptionSolo'], [], [['text', '/profile/inscription/solo/modifier']], [], []],
+    'inscription_solo_edit' => [[], ['_controller' => 'App\\Controller\\User\\UserController::inscriptionSolo'], [], [['text', '/profile/inscription/solo/edit']], [], []],
+    'inscription_solo_ajout' => [[], ['_controller' => 'App\\Controller\\User\\UserController::inscriptionSolo'], [], [['text', '/profile/inscription/solo/minscrire']], [], []],
     'inscription_solo_delete' => [['id'], ['_controller' => 'App\\Controller\\User\\UserController::deleteInscriptionSolo'], [], [['text', '/delete'], ['variable', '/', '[^/]++', 'id', true], ['text', '/profile/inscription/solo']], [], []],
 ];
