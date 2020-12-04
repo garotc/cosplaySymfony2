@@ -47,59 +47,60 @@ class __TwigTemplate_04a17891291d0d1e79b23932d7383498c926b7ceca2d2f971889129737d
   </button>
 
   <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">
-    <ul class=\"navbar-nav mr-auto\">
-
-        <li class=\"nav-item active\">
-                <a class=\"navbar-brand\" href=\"https://www.carologameshow.com/\">
-    <img src='";
+    <ul class=\"navbar-nav mr-auto row\">
+    ";
+        // line 10
+        echo "        <li class=\"nav-item active col-md-1 ml-md-0\">
+            <a class=\"navbar-brand\" href=\"";
+        // line 11
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("accueil");
+        echo "\">
+                <img src='";
         // line 12
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/logo-cgs.webp"), "html", null, true);
         echo "' alt='logo carolo game show' class='logo-cgs-nav'>
-    </a>
+            </a>
         </li>
-
 ";
-        // line 16
-        if ( !twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 16, $this->source); })()), "user", [], "any", false, false, false, 16)) {
+        // line 15
+        if ( !twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 15, $this->source); })()), "user", [], "any", false, false, false, 15)) {
+            // line 16
+            echo "        <li class=\"nav-item col-md-1 offset-md-9 m-sm-auto mr-md-1 ml-md-auto\">
+            <a class=\"nav-link\" href=\"";
             // line 17
-            echo "        <li class=\"nav-item ml-auto\">
-            <a class=\"nav-link\" href=\"";
-            // line 18
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("register");
-            echo "\">Inscription</a>
+            echo "\">Créer un compte</a>
         </li>
-
-        <li class=\"nav-item mr-5\">
+        <li class=\"nav-item col-md-1 m-sm-auto ml-md-0 mr-md-2\">
             <a class=\"nav-link\" href=\"";
-            // line 22
+            // line 20
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
             echo "\"><i class=\"far fa-user mr-1\"></i>Connexion</a>
         </li>
-
 ";
         } else {
-            // line 26
+            // line 23
             echo "        <li class=\"nav-item\">
             <a class=\"nav-link\" href=\"";
-            // line 27
+            // line 24
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("inscription_solo");
             echo "\">Inscription concours</a>
         </li>
         <li class=\"nav-item\">
             <a class=\"nav-link ml-auto\" href=\"";
-            // line 30
+            // line 27
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("_app_user_account");
             echo "\">Mon compte</a>
         </li>
         <li class=\"nav-item ml-auto mr-5\">
             <a class=\"nav-link\" href=\"";
-            // line 33
+            // line 30
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
             echo "\">Déconnexion</a>
         </li>
 ";
         }
-        // line 36
+        // line 33
         echo "    </ul>
 
 
@@ -125,7 +126,7 @@ class __TwigTemplate_04a17891291d0d1e79b23932d7383498c926b7ceca2d2f971889129737d
 
     public function getDebugInfo()
     {
-        return array (  103 => 36,  97 => 33,  91 => 30,  85 => 27,  82 => 26,  75 => 22,  68 => 18,  65 => 17,  63 => 16,  56 => 12,  43 => 1,);
+        return array (  104 => 33,  98 => 30,  92 => 27,  86 => 24,  83 => 23,  77 => 20,  71 => 17,  68 => 16,  66 => 15,  60 => 12,  56 => 11,  53 => 10,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -137,23 +138,20 @@ class __TwigTemplate_04a17891291d0d1e79b23932d7383498c926b7ceca2d2f971889129737d
   </button>
 
   <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">
-    <ul class=\"navbar-nav mr-auto\">
-
-        <li class=\"nav-item active\">
-                <a class=\"navbar-brand\" href=\"https://www.carologameshow.com/\">
-    <img src='{{ asset('img/logo-cgs.webp') }}' alt='logo carolo game show' class='logo-cgs-nav'>
-    </a>
+    <ul class=\"navbar-nav mr-auto row\">
+    {# Logo #}
+        <li class=\"nav-item active col-md-1 ml-md-0\">
+            <a class=\"navbar-brand\" href=\"{{path(\"accueil\")}}\">
+                <img src='{{ asset('img/logo-cgs.webp') }}' alt='logo carolo game show' class='logo-cgs-nav'>
+            </a>
         </li>
-
 {% if not app.user %}
-        <li class=\"nav-item ml-auto\">
-            <a class=\"nav-link\" href=\"{{path(\"register\")}}\">Inscription</a>
+        <li class=\"nav-item col-md-1 offset-md-9 m-sm-auto mr-md-1 ml-md-auto\">
+            <a class=\"nav-link\" href=\"{{path(\"register\")}}\">Créer un compte</a>
         </li>
-
-        <li class=\"nav-item mr-5\">
+        <li class=\"nav-item col-md-1 m-sm-auto ml-md-0 mr-md-2\">
             <a class=\"nav-link\" href=\"{{path(\"app_login\")}}\"><i class=\"far fa-user mr-1\"></i>Connexion</a>
         </li>
-
 {% else %}
         <li class=\"nav-item\">
             <a class=\"nav-link\" href=\"{{path('inscription_solo')}}\">Inscription concours</a>

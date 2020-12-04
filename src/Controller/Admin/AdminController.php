@@ -106,6 +106,7 @@ class AdminController extends AbstractController
     {
         $inscription = $this->getUser();
         $inscriptionsSolo = $repo->findAll();
+   /*      dd($inscriptionsSolo); */
         return $this->render('admin/inscriptionSolo.html.twig', compact('inscriptionsSolo','inscription'));
     }
 

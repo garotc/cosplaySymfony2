@@ -7,51 +7,62 @@
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
 
-    <h1>Créer un compte</h1>
+{{ form_start(registrationForm) }}
+<div class="form col-sm-12 col-md-6">
+    <div class="row text-center p-sm-2">  
+        <h2 class="col-sm-12 col-md-6 mx-auto">Formulaire d'inscription</h2>
+    </div>
 
-
-    {{ form_start(registrationForm) }}
-    <div class="form">   
-    <h2 class="col-6 m-auto">Formulaire d'inscription</h2>
-
-        <div class="form-group col-6 m-auto">
-            {{ form_row(registrationForm.pseudo,{"attr":{ placeholder:'Pseudo', class:'form-control'}})
+    <div class="row">
+        <div class="form-group col-sm-12 col-md-6 m-auto">
+            {{ form_row(registrationForm.pseudo,{"attr":{ placeholder:'Pseudo',type:'text', class:'form-control'}})
             }}
         </div>
-
-        <div class="form-group col-6 m-auto">
-            {{ form_row(registrationForm.nom,{"attr":{ placeholder:'Nom', class:'form-control'}})
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-12 col-md-6 m-auto">
+            {{ form_row(registrationForm.nom,{"attr":{ placeholder:'Nom', type:'text', class:'form-control'}})
             }}
         </div>
-
-        <div class="form-group col-6 m-auto">
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-12 col-md-6 m-auto">
             {{ form_row(registrationForm.prenom,{"attr":{ placeholder:'Prénom', class:'form-control'}})
             }}
         </div>
-
-        <div class="form-group col-6 m-auto">
-            {{ form_row(registrationForm.telephone,{"attr":{ placeholder:'numéro de téléphone', class:'form-control'}})
-            }}
-        </div>        
-
-        <div class="form-group col-6 m-auto">
-            {{ form_row(registrationForm.email,{"attr":{class:'form-control'}})
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-12 col-md-6 m-auto">
+            {{ form_row(registrationForm.telephone,{"attr":{ placeholder:'numéro de téléphone',type : 'tel', class:'form-control'}})
             }}
         </div>
-
-        <div class="form-group col-6 m-auto">
-            {{ form_row(registrationForm.plainPassword,{"attr":{class:'form-control'}})
+    </div> 
+    <div class="row">      
+        <div class="form-group col-sm-12 col-md-6 m-auto">
+            {{ form_row(registrationForm.email,{"attr":{placeholder:'votre-email@email.fr',type:'email', class:'form-control'}})
             }}
         </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-12 col-md-6 m-auto">
+            {{ form_row(registrationForm.plainPassword,{"attr":{placeholder:'●●●●●●●●',type:'password',class:'form-control'}})
+            }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-12 col-md-6 m-auto">
+
+            {{ form_widget(registrationForm.agreeTerms) }}
+            {{ form_label(registrationForm.agreeTerms) }}
+
+        </div>
+    </div>
+    <div class="row">
         <div class="col-2 mx-auto mt-5">
         {{ form_row(registrationForm.Enregistrer,{"attr":{class:'btn btn-primary'}})
         }}
-        </div>
-        <div class="form-group col-6 m-auto">
-            {{ form_row(registrationForm.agreeTerms,{"attr":{class:''}})
-            }}
-        </div>
-        
+        </div>        
+    </div>
 </div>
     {{ form_end(registrationForm) }}
 

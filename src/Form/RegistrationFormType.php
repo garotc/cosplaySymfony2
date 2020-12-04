@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 class RegistrationFormType extends AbstractType
@@ -20,31 +21,58 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('pseudo', TextType::class)
-            ->add('nom', TextType::class, ['label'=>'Nom'])
-            ->add('prenom', TextType::class)
-            ->add('telephone', TelType::class)
-            ->add('email')
+            ->add('pseudo', TextType::class, [
+                'constraints'=> [
+                    new NotBlank([
+                        'message'=>'Ce champ ne peut être vide'
+                    ])
+                ]
+            ])
+            ->add('nom', TextType::class, [
+                'constraints'=> [
+                    new NotBlank([
+                        'message'=>'Ce champ ne peut être vide'
+                    ])
+                ]
+            ])
+            ->add('prenom', TextType::class, [
+                'constraints'=> [
+                    new NotBlank([
+                        'message'=>'Ce champ ne peut être vide'
+                    ])
+                ]
+            ])
+            ->add('telephone', TelType::class, [
+                'constraints'=> [
+                    new NotBlank([
+                        'message'=>'Ce champ ne peut être vide'
+                    ])
+                ]
+            ])
+            ->add('email', EmailType::class, [
+                'constraints'=> [
+                    new NotBlank([
+                        'message'=>'Une adresse email valide est nécessaire'
+                    ])
+                ]
+            ])
             ->add('plainPassword', PasswordType::class, [
-                // instead of being set onto the object directly,
-                // this is read and encoded in the controller
                 'mapped' => false,
                 'label'=>'Mot de passe',
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Veuillez entrer un mot de passe',
+                        'message' => 'Veuillez entrer un mot de passe'
                     ]),
                     new Length([
                         'min' => 6,
                         'minMessage' => 'Votre mot de passe doit faire au minimum {{ limit }} caractères',
-                        // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),
                 ],
             ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
-                'label'=>'accepter les conditions',
+                'label'=>'Accepter les CGU',
                 'constraints' => [
                     new IsTrue([
                         'message' => 'Vous devez accepter les conditions d\'utilisations',
