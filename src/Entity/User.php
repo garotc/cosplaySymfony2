@@ -9,6 +9,7 @@ use Gedmo\Mapping\Annotation\Timestampable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -25,6 +26,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\Email(message = "Le format n'est pas correct")
      */
     private $email;
 
@@ -75,6 +77,16 @@ class User implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\InscriptionSolo", mappedBy="user")
+     */
+    private $inscriptionSolo;
+
+    public function __construct()
+    {
+        $this->inscriptionSolo = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -238,4 +250,12 @@ class User implements UserInterface
         return $this;
     }
 
+
+    /**
+     * Get the value of inscriptionSolo
+     */ 
+    public function getInscriptionSolo()
+    {
+        return $this->inscriptionSolo;
+    }
 }
