@@ -37,11 +37,13 @@
         </div>
         <div class="row mb-3">
             <a href="{{path('admin_user_edit',{'id':user.id})}}" class="btn btn-warning col-4 m-auto">Editer</a>
+
+            {# Bouton delete #}
             <form method="POST" class='col-4 m-auto btn' action="{{path('admin_user_delete',{'id':user.id})}}"
-                                                onSubmit ="return confirm('Confirmer la suppression ?')" style="display:inline-block" >
-                                                <input type="hidden" name="_method" value="SUP">
-                                                <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ user.id)}}">
-                                                <input type="submit" class="btn btn-danger" value="Supprimer">
+            onSubmit ="return confirm('Confirmer la suppression ?')" style="display:inline-block" >
+                <input type="hidden" name="_method" value="SUP">
+                <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ user.id)}}">
+                <input type="submit" class="btn btn-danger" value="Supprimer">
             </form>
         </div>
     </div>

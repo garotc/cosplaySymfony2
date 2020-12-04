@@ -5535,14 +5535,13 @@
         <argument key="repo" type="service" id="App\Repository\InscriptionSoloRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.88kWx22" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.2wd8YtR" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="inscriptionSolo" type="service" id=".errored..service_locator.88kWx22.App\Entity\InscriptionSolo"/>
-        <argument key="repo" type="service" id="App\Repository\InscriptionSoloRepository"/>
+        <argument key="inscriptionSolo" type="service" id=".errored..service_locator.2wd8YtR.App\Entity\InscriptionSolo"/>
       </argument>
     </service>
-    <service id=".service_locator.EBdjmuZ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.q98HjwH" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\Admin\AdminController::affInscriptionSolo" type="service" id=".service_locator.4oNQG9h"/>
@@ -5561,7 +5560,7 @@
         <argument key="App\Controller\ResetPasswordController::request" type="service" id=".service_locator.A0rcl1e"/>
         <argument key="App\Controller\ResetPasswordController::reset" type="service" id=".service_locator.j5_bHjD"/>
         <argument key="App\Controller\SecurityController::login" type="service" id=".service_locator.xA8Fw_."/>
-        <argument key="App\Controller\User\UserController::deleteInscriptionSolo" type="service" id=".service_locator.88kWx22"/>
+        <argument key="App\Controller\User\UserController::deleteInscriptionSolo" type="service" id=".service_locator.2wd8YtR"/>
         <argument key="App\Controller\User\UserController::editUser" type="service" id=".service_locator.dNCO0Nf"/>
         <argument key="App\Controller\User\UserController::getInfosUser" type="service" id=".service_locator.fw6ySEy"/>
         <argument key="App\Controller\User\UserController::infosInscriptionSolo" type="service" id=".service_locator.WX7skS."/>
@@ -5588,7 +5587,7 @@
         <argument key="App\Controller\ResetPasswordController:request" type="service" id=".service_locator.A0rcl1e"/>
         <argument key="App\Controller\ResetPasswordController:reset" type="service" id=".service_locator.j5_bHjD"/>
         <argument key="App\Controller\SecurityController:login" type="service" id=".service_locator.xA8Fw_."/>
-        <argument key="App\Controller\User\UserController:deleteInscriptionSolo" type="service" id=".service_locator.88kWx22"/>
+        <argument key="App\Controller\User\UserController:deleteInscriptionSolo" type="service" id=".service_locator.2wd8YtR"/>
         <argument key="App\Controller\User\UserController:editUser" type="service" id=".service_locator.dNCO0Nf"/>
         <argument key="App\Controller\User\UserController:getInfosUser" type="service" id=".service_locator.fw6ySEy"/>
         <argument key="App\Controller\User\UserController:infosInscriptionSolo" type="service" id=".service_locator.WX7skS."/>
@@ -6097,12 +6096,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.EBdjmuZ"/>
+      <argument type="service" id=".service_locator.q98HjwH"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.EBdjmuZ"/>
+      <argument type="service" id=".service_locator.q98HjwH"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -6117,7 +6116,7 @@
     <service id=".errored..service_locator.4MW7.KG.App\Entity\InscriptionSolo" class="App\Entity\InscriptionSolo"/>
     <service id=".errored..service_locator.57pSehj.App\Entity\Categorie" class="App\Entity\Categorie"/>
     <service id=".errored..service_locator.0l1nthY.App\Entity\User" class="App\Entity\User"/>
-    <service id=".errored..service_locator.88kWx22.App\Entity\InscriptionSolo" class="App\Entity\InscriptionSolo"/>
+    <service id=".errored..service_locator.2wd8YtR.App\Entity\InscriptionSolo" class="App\Entity\InscriptionSolo"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <tag name="container.no_preload"/>
       <argument type="service" id=".service_locator.BzL8.fh"/>
@@ -6509,7 +6508,7 @@
     <service id="SymfonyCasts\Bundle\ResetPassword\ResetPasswordHelperInterface" alias="symfonycasts.reset_password.helper"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.WaGDpDt" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.EBdjmuZ"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.q98HjwH"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

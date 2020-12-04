@@ -85,16 +85,16 @@ class AdminController extends AbstractController
      }
 
     /**
-     * @Route("/admin/user/{id}", name="admin_user_delete", methods="SUP")
+     * @Route("/admin/user/{id}/sup", name="admin_user_delete", methods="SUP")
      */
     public function deleteUser(User $user = null, Request $request, EntityManagerInterface $em)
     {
-        //  dd($request->get('_token'));
         if ($this->isCsrfTokenValid('SUP'.$user->getId(), $request->get('_token'))) {
+            
             $em->remove($user);
             $em->flush();
-            $this->addFlash('message', 'Utilisateur supprimé avec succès');
 
+            $this->addFlash('message', 'Utilisateur supprimé avec succès');
             return $this->redirectToRoute('admin_aff_user');
         }
     }

@@ -45,8 +45,5 @@ class InscriptionSoloRepository extends ServiceEntityRepository
             ->getQuery()
             ->getOneOrNullResult()
         ;
-    }
-
-
-    
+    }   
 }

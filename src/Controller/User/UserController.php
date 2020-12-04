@@ -102,7 +102,7 @@ class UserController extends AbstractController
     /**
      * @Route("profile/inscription/solo/{id}/delete", name="inscription_solo_delete", methods="SUPUSERSOLO")
      */
-    public function deleteInscriptionSolo(Request $request,InscriptionSoloRepository $repo, InscriptionSolo $inscriptionSolo): Response
+    public function deleteInscriptionSolo(Request $request, InscriptionSolo $inscriptionSolo): Response
     {
 
         if ($this->isCsrfTokenValid('SUPUSERSOLO'.$inscriptionSolo->getId(), $request->request->get('_token'))) {

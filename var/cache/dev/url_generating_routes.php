@@ -19,7 +19,7 @@ return [
     'categorie_ajout' => [[], ['_controller' => 'App\\Controller\\Admin\\AdminController::ajouterCategorie'], [], [['text', '/admin/categorie/ajout']], [], []],
     'admin_aff_user' => [[], ['_controller' => 'App\\Controller\\Admin\\AdminController::affUser'], [], [['text', '/admin/users']], [], []],
     'admin_user_edit' => [['id'], ['_controller' => 'App\\Controller\\Admin\\AdminController::editUser'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/admin/user']], [], []],
-    'admin_user_delete' => [['id'], ['_controller' => 'App\\Controller\\Admin\\AdminController::deleteUser'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/admin/user']], [], []],
+    'admin_user_delete' => [['id'], ['_controller' => 'App\\Controller\\Admin\\AdminController::deleteUser'], [], [['text', '/sup'], ['variable', '/', '[^/]++', 'id', true], ['text', '/admin/user']], [], []],
     'admin_aff_inscription_solo' => [[], ['_controller' => 'App\\Controller\\Admin\\AdminController::affInscriptionSolo'], [], [['text', '/admin/inscription/solo']], [], []],
     'admin_inscription_solo_edit' => [['id'], ['_controller' => 'App\\Controller\\Admin\\AdminController::editInscriptionSolo'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/admin/inscription/solo']], [], []],
     'admin_inscription_solo_delete' => [['id'], ['_controller' => 'App\\Controller\\Admin\\AdminController::deleteInscriptionSolo'], [], [['text', '/delete'], ['variable', '/', '[^/]++', 'id', true], ['text', '/admin/inscription/solo']], [], []],

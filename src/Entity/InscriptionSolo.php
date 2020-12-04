@@ -20,8 +20,8 @@ class InscriptionSolo
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity=user::class)
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\OneToOne(targetEntity=User::class, inversedBy="InscriptionSolo")
+     * @ORM\JoinColumn(name="user_id", onDelete="CASCADE")
      */
     private $user;
 
