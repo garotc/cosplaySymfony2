@@ -44,7 +44,7 @@ class __TwigTemplate_ec95aa8aed82d3b52ee128d65c99a2830dfc02999b7296300a0badc05be
 <footer class=\"row mt-5\"><a href=\"";
         // line 2
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("rgpd");
-        echo "\" class=\"col-4 m-auto\" target=\"_blank\">Consulter le RGPD</a>
+        echo "\" class=\"col-sm-10 col-md-4 m-auto\" target=\"_blank\">Consulter le RGPD</a>
 </footer>
 
 <!-- jQuery library -->
@@ -81,7 +81,7 @@ class __TwigTemplate_ec95aa8aed82d3b52ee128d65c99a2830dfc02999b7296300a0badc05be
     public function getSourceContext()
     {
         return new Source("<div class=\"row marge-footer\"></div>
-<footer class=\"row mt-5\"><a href=\"{{path('rgpd')}}\" class=\"col-4 m-auto\" target=\"_blank\">Consulter le RGPD</a>
+<footer class=\"row mt-5\"><a href=\"{{path('rgpd')}}\" class=\"col-sm-10 col-md-4 m-auto\" target=\"_blank\">Consulter le RGPD</a>
 </footer>
 
 <!-- jQuery library -->

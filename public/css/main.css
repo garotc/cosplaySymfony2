@@ -1,40 +1,27 @@
-
-
-/*Insérer une font*/
-@font-face {
-    font-family: "Nomtypographie";
-        src: url(font/nomtypographie)format('truetype');
-    
-    font-weight: normal;
-    font-style: normal;
-    }
-
-*
-{
+/*----------Insérer une font----------*/
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap');
+/*----------Général----------*/  
+*{
     margin: 0;
     padding: 0;
 }
-
-.row
-{
+.row{
     margin : 0!important;
 }
-
-.container-fluid
-{
+.container-fluid{
     margin :0!important;
     padding: 0!important;
     width: 100vw;
 }
-
-.margebody
-{
+.margebody{
     height: 10vh;
     width: 100vw;
 }
-
-header
-{
+body{
+    font-family: 'Oswald';
+}
+/*----------Général end----------*/  
+header{
     position: fixed;
     background-color: #313131;
     min-height: 2.8vh;
@@ -42,78 +29,64 @@ header
     top: 0px;
     z-index: 99;
 }
-
-h1
-{
+h1{
     margin-right : auto!important;
     margin-left: auto!important;
     margin-bottom: 2vh;
     text-align: center;
+    font-weight: bold;
     top: 12vh;
 }
-
-.menu
-{
+/*---------- Menu navbar start ----------*/
+.menu{
     background-color: #111111;
 }
-
-.logo-cgs-nav
-{
-    max-height: 5vh;
+.navbar{
+    margin: 0!important;
 }
-
-nav ul
-{
+nav ul{
     display: flex;
     width: 100vw;
 }
-
-nav li
-{
+nav li{
     align-self: center;
 }
-
-.right
-{
+.right{
     align-self: center;
     margin-left: auto;
     margin-right : 2vw;
 }
-
-
-li
-{
+li{
     text-decoration: none;
     list-style-type: none;
     text-align: center;
 }
-
-li:hover
-{
+li:hover{
     color: #fff;
     background-color: #FFA514 ;
 }
-
-a
-{
-    text-decoration: none;
-    color: white;
+.logo-cgs-nav{
+    max-height: 5vh;
 }
-
-a:hover
-{
-    color : yellow;
+.logo-cgs-nav:hover{
+    background-color: #111;
+}
+/*---------- Menu navbar End ----------*/
+a{
+    text-decoration: none;
+    color: #fff;
+}
+a:hover{
+    color: #fff;
     text-decoration: none;
 }
-
-.paralax
-{
+.paralax{
     display: block;
     position: absolute;
     top: 0;
     bottom: 0;
     background-image: url(../img/paralax.jpg);
-    color: white;
+    color: #fff;
     height: 100vh;
     width: 100vw;
     background-attachment: fixed;
@@ -121,21 +94,27 @@ a:hover
     background-repeat: no-repeat;
     background-size: cover;
 }
-
-.accueil-title
-{
+.accueil-title{
     text-align: center;
+    font-weight: bold;
+    font-size: 6vw;
+    text-shadow: #fff 0.2vw 0.05vw 0.1vw;
+}
+h5{
+    text-align: center;
+    color: #fff;
+}
+label{
+    color: #fff;
 }
 
+/* --------------------------------------moyens appareils--------------------------------------*/
 @media screen and (min-width: 769px) {
 
-    section
-    {
+    section{
         margin-top : 15vh;
     }
-
-    .form
-    {
+    .form{
         margin-left: auto;
         margin-right: auto;
         padding: 3vh;
@@ -144,45 +123,26 @@ a:hover
         padding-bottom: 10vh;
         background-color: #FFA514;
     }
-
-    body
-    {
-        /* background-image: url(../img/paralax.jpg); */
+    body{
+        background-image: url(../img/paralax.jpg);
         background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
     }
-
 }
 
-
-/*petits appareil*/
+/* --------------------------------------petits appareils--------------------------------------*/
 @media screen and (min-width: 0px) and (max-width: 768px) {
 
-    body
-    {
+    body{
         background-color: #fff!important;
     }
-    
-    section
-    {
+    /* Accueil */
+    section{
         margin-top : 5vh;
     }
-
-    form
-    {
-        margin-left: none;
-        margin-right: none;
-        padding: 3vh;
-        width: 100%;
-        padding-top: 10vh ;
-        padding-bottom: 10vh;
-        background-color: #FFA514;
-    }
-
-    header
-    {
+    header{
         position: fixed;
         background-color: #313131;
         min-height: 10vh;
@@ -191,94 +151,71 @@ a:hover
         padding-top: 1.5vh;
         z-index: 99;
     }
-
-
+    .img-titre{
+        margin: 5vh auto!important;
+        width: 80vw;
+    }
+    .accueil-title{
+        font-weight: bold;
+        font-size: 10vw;
+    }
+    form{
+        margin-left: none;
+        margin-right: none;
+        padding: 3vh;
+        width: 100%;
+        padding-top: 10vh ;
+        padding-bottom: 10vh;
+        background-color: #FFA514;
+    }
 }
-
-
-h5
-{
-    text-align: center;
-    color: white;
-}
-
-label
-{
-    color: white;
-}
-
-
-
 /* partie administrateur*/
 
-.user
-{
+.user{
     min-height: 10vh;
     min-width: 10vh;
     margin :0;
-    background-color: antiquewhite;
+    background-color: antique#fff;
 }
-
-.body-admin
-{
+.body-admin{
     padding-top: 11.5vh;
     min-height: 100vh;
     max-width: 100vw;
 }
-
-.uneditable
-{
+.uneditable{
     columns: #111111!important;
 }
-
-.inscri
-{
+.inscri{
     color :#fff;
 }
-
-.alert-modif
-{
+.alert-modif{
     display: block;
     position: absolute;
     margin-left: 50vw;
     bottom: 0px;
 }
-
-.automin
-{
+.automin{
     color : #fff;
 }
-
-.container
-{
+.container{
     margin :0!important;
     width: 100vw;
 }
-
-.banniere
-{
+.banniere{
     width: 100vw;
 }
-
-.affUser
-{
-    background-color: white;
+.affUser{
+    background-color: #fff;
 }
-
-.form-categorie
-{
+.form-categorie{
     background-color: #FFA514;
 }
-
-.categorie
-{
+.categorie{
     color : #fff;
     font-size: 1.3em;
     font-weight: bold;
 }
-
-footer
-{
+footer{
     display: block;
     position: fixed;
     bottom: 0px;
@@ -290,10 +227,7 @@ footer
     margin-right : 0;
     margin-top: 10vw;
 }
-
-/*partie user*/
-
-.useraccount
-{
+/*----------partie user----------*/
+.useraccount{
     background-color: #FFA514;
 }
