@@ -62,7 +62,6 @@ class UserController extends AbstractController
         $user = $this->getUser();
         $userId = $user->getId();
         $infos= $repo->findOneByUserId($userId);
-        //dd($infos);
         return $this->render('home/user/inscriptionsolo.html.twig', compact('user', 'infos'));
     }
     

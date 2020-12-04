@@ -76,6 +76,16 @@ class User implements UserInterface
      */
     private $password;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\InscriptionSolo", mappedBy="user")
+     */
+    private $inscriptionSolo;
+
+    public function __construct()
+    {
+        $this->inscriptionSolo = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -238,4 +248,12 @@ class User implements UserInterface
         return $this;
     }
 
+
+    /**
+     * Get the value of inscriptionSolo
+     */ 
+    public function getInscriptionSolo()
+    {
+        return $this->inscriptionSolo;
+    }
 }
