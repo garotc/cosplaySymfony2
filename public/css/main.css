@@ -159,13 +159,17 @@ label{
         font-weight: bold;
         font-size: 10vw;
     }
+    /* End Accueil */
+    h2{
+        font-size: 8vw;
+    }
     form{
         margin-left: none;
         margin-right: none;
         padding: 3vh;
         width: 100%;
-        padding-top: 10vh ;
-        padding-bottom: 10vh;
+        padding-top: 5vh ;
+        padding-bottom: 12vh;
         background-color: #FFA514;
     }
 }
@@ -230,4 +234,9 @@ footer{
 /*----------partie user----------*/
 .useraccount{
     background-color: #FFA514;
+}
+
+
+.form-error{
+    color: red;
 }

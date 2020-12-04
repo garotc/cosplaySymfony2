@@ -111,7 +111,7 @@ class __TwigTemplate_38f0b68136fb8e6fcda6d64d8d625c23ed02293617cd7bbc368fd37279b
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Bienvenue ";
+        echo "Cosplay au CGS";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -159,7 +159,7 @@ class __TwigTemplate_38f0b68136fb8e6fcda6d64d8d625c23ed02293617cd7bbc368fd37279b
 <html>
     <head>
         <meta charset='UTF-8'>
-        <title>{% block title %}Bienvenue {% endblock %}</title>
+        <title>{% block title %}Cosplay au CGS{% endblock %}</title>
 
         <link rel=\"icon\" href=\"../public/images/favicon.png\">
         <!-- Latest compiled and minified CSS -->
