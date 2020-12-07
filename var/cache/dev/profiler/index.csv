@@ -1141,3 +1141,7 @@ dd5fe0,127.0.0.1,GET,https://127.0.0.1:8000/creer-compte,1607092926,,500
 05fab5,127.0.0.1,POST,https://127.0.0.1:8000/creer-compte,1607093509,,200
 2c9da6,127.0.0.1,GET,https://127.0.0.1:8000/creer-compte,1607093551,,200
 e8dbfa,127.0.0.1,POST,https://127.0.0.1:8000/creer-compte,1607093558,,200
+331a64,127.0.0.1,GET,https://127.0.0.1:8000/img/TITRE_SITE.webp,1607328702,16edf2,404
+16edf2,127.0.0.1,GET,https://127.0.0.1:8000/img/TITRE_SITE.webp,1607328702,,404
+e86a89,127.0.0.1,GET,https://127.0.0.1:8000/public/images/favicon.png,1607328703,278205,404
+278205,127.0.0.1,GET,https://127.0.0.1:8000/public/images/favicon.png,1607328703,,404
